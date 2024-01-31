@@ -31,18 +31,22 @@ exports.createPost = async (req,res) => {
 };
 
 //get particular post
-exports.getPostbyID = async(req,res) => {
-    try{
+exports.getPostbyID = async (req, res) => {
+    try {
         const postID = req.params.postID;
+        if (!postID) {
+            return res.status(404).json({ message: 'Post ID not provided' });
+        }
         const post = await Post.findById(postID);
-        if(!postID){
-            res.status(404).json({message:'post not found'})
+        if (!post) {
+            return res.status(404).json({ message: 'Post not found' });
         }
         res.status(200).json(post);
-    }catch(err){
-        res.status(500).json({message:err.message});
+    } catch (err) {
+        res.status(500).json({ message: err.message });
     }
 };
+
 
 // DELETE a post by ID
 exports.deletePost = async (req, res) => {
@@ -73,7 +77,7 @@ exports.addCommentToPost = async (req, res) => {
 
         await Post.findByIdAndUpdate(postID, { $push: { comments: savedComment._id } });
 
-        res.status(201).json({ message: 'Comment added successfully', comment: savedComment });
+        res.status(201).json(savedComment );
     } catch (err) {
         res.status(500).json({ message: err.message });
     }
@@ -107,3 +111,17 @@ exports.deleteComment = async (req, res) => {
         res.status(500).json({ message: err.message });
     }
 };
+
+//fetch comment of a post
+exports.getComment = async (req, res) => {
+    try {
+        const post = await Post.findById(req.params.postID).populate('comments');
+        if (!post) {
+            return res.status(404).send('Post not found');
+        }
+        res.json(post.comments);
+    } catch (error) {
+        res.status(500).send('Server error');
+    }
+
+};    

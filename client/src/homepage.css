@@ -1,0 +1,45 @@
+/* home.css */
+
+/* Set a gradient background for the entire page */
+html,
+body {
+    height: 100%;
+    margin: 0;
+    background: linear-gradient(to bottom, #131414, #000000);
+    /* Gradient from dark grey to black */
+    color: #fff;
+    /* White text color for better contrast */
+    font-family: 'Arial', sans-serif;
+    /* Example font, change as needed */
+}
+
+/* Ensure the root div fills the entire page */
+#root {
+    height: 100%;
+}
+
+/* Use flexbox to center content in .home-container */
+.home-container {
+    height: 100%;
+    /* Full height */
+    display: flex;
+    flex-direction: column;
+    /* Stack children vertically */
+    justify-content: center;
+    /* Center vertically */
+    align-items: center;
+    /* Center horizontally */
+    text-align: center;
+    /* Center text */
+}
+
+/* Adjust the header to fit within the new layout */
+.header {
+    position: fixed;
+    /* Fixed at the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    /* Ensure it's above other content */
+}

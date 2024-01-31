@@ -4,6 +4,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 require('dotenv').config();
+const cors = require('cors');
 
 
 const indexRouter = require('./routes/index');
@@ -21,6 +22,12 @@ main().catch((err) => console.log(err));
 async function main() {
   await mongoose.connect(mongoDB);
 }
+
+// CORS configuration for a specific origin
+app.use(cors({
+  origin: 'http://localhost:5173'
+}));
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -40,6 +47,7 @@ app.use('/posts', postsRouter);
 app.use(function(req, res, next) {
   next(createError(404));
 });
+
 
 // error handler
 app.use(function(err, req, res, next) {

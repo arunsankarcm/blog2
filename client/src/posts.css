@@ -1,0 +1,74 @@
+.posts-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    /* Align to the start of the container */
+    gap: 20px;
+    /* Space between cards */
+    padding: 20px;
+    /* Padding around the grid */
+}
+
+.post-card {
+    background: #333;
+    /* Dark background for the card */
+    color: #ffa500;
+    /* Orange color for the text */
+    border-radius: 10px;
+    /* Rounded corners */
+    padding: 20px;
+    /* Padding inside the card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Card shadow */
+    width: 250px;
+    /* Fixed width, adjust as necessary */
+    margin-bottom: 20px;
+    /* Space below each card */
+    transition: transform 0.2s;
+    /* Smooth transform on hover */
+}
+
+.post-card:hover {
+    transform: translateY(-5px);
+    /* Slightly raise the card on hover */
+}
+
+/* Style the title, content, and read button inside the post-card as needed */
+.post-card h2 {
+    font-size: 1.5em;
+    color: #ffa500;
+    /* Orange color for the title */
+    margin-bottom: 10px;
+    /* Space below the title */
+}
+
+.post-card p {
+    color: #fff;
+    /* White color for the content */
+    margin-bottom: 15px;
+    /* Space below the content */
+}
+
+/* Add styles for your 'Read' button as well */
+.read-button {
+    background: #ffa500;
+    /* Orange background for the button */
+    color: #333;
+    /* Dark text for the button */
+    border: none;
+    border-radius: 5px;
+    /* Rounded corners for the button */
+    padding: 10px 15px;
+    /* Padding inside the button */
+    text-transform: uppercase;
+    /* Uppercase text */
+    cursor: pointer;
+    /* Pointer cursor on hover */
+    font-weight: bold;
+    /* Bold font weight */
+}
+
+.read-button:hover {
+    background: #ff8700;
+    /* Darker orange on hover */
+}
