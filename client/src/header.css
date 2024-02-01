@@ -13,33 +13,65 @@
 }
 
 .navigation a {
-    display: flex;
-    gap: 10px;
-    color: #fff;
-    text-decoration: none;
-    padding: 10px 15px;
-    transition: color 0.3s ease;
-    margin-right: 20px;
+    color: black;
+        /* Change text color to black */
+        background-color: #ffa500;
+        /* Set the background color to orange */
+        text-decoration: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        /* Keep the border-radius for rounded corners */
+        transition: background-color 0.3s, transform 0.3s;
+        margin-left: 10px;
+        margin-bottom: 20px;
     
 }
 
-.navigation a:hover {
-    color: #ffa500;
-    /* Or any other highlight color you prefer */
+.navigation {
+    display: flex;
+    gap: 10px;
+    margin-right: 70px;
+    /* Aligns the navigation to the left */
 }
+
 nav {
     margin-top: 30px;
     display: flex;
     justify-content: space-evenly;
 }
 
-/* Style individual link */
-nav a {
+.button-style { 
+    color: black;
+    background-color: #ffa500;
     text-decoration: none;
-    padding: 10px 20px;
-    color: white;
-    background-color: #007bff;
-    /* Bootstrap primary color */
+    padding: 10px 15px;
     border-radius: 5px;
     transition: background-color 0.3s, transform 0.3s;
+    margin-left: 10px;
+    border: none; /* Remove border for button */
+    cursor: pointer; /* Hand cursor for button */
+    height: 39px;
+    
+}
+
+/* Optionally, ensure that the buttons and links cannot be dragged */
+.button-style:active {
+    position: relative; /* For click effect */
+}
+
+.button-style:focus {
+    outline: none; /* Remove the outline on focus for buttons */
+}
+
+/* Apply the same hover effect to both links and buttons */
+.button-style:hover {
+    background-color: #e69500;
+    transform: scale(1.05);
+}
+
+/* Additional styles for the navigation container */
+.navigation {
+    display: flex;
+    gap: 10px;
+    margin-right: 70px;
 }

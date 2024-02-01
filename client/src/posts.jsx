@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './posts.css';
 import { useNavigate } from 'react-router-dom';
+import PostsHeader from './postsheader';
+
 
 const Post = () => {
     const [posts, setPosts] = useState([]);
@@ -29,9 +31,7 @@ const Post = () => {
         navigate(`/posts/${postID}`);
     };
 
-    const handleCreatePostClick = () => {
-        navigate('/create-post');
-    };
+
 
     if (loading) {
         return <div>Loading...</div>;
@@ -39,17 +39,17 @@ const Post = () => {
 
     return (
         <div>
-            <button onClick={handleCreatePostClick} className="create-post-button">Create Post</button>
+            <PostsHeader />
             <div className="posts-grid">
                 {posts.map(post => (
                     <div key={post._id} className="post-card" onClick={() => handlePostClick(post._id)}>
                         <h2>{post.title}</h2>
-                        <p>{post.content}</p>
                     </div>
                 ))}
             </div>
         </div>
     );
+
 };
 
 export default Post;

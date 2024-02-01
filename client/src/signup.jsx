@@ -1,49 +1,44 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-
-
+import { useNavigate } from 'react-router-dom';
+import './signup.css'; // Assuming this CSS is styled similarly to login.css
 
 const Signup = () => {
-    const [userData, setUserData] = useState({
-        username: '',
-        password: '',
-    });
+    const navigate = useNavigate();
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
 
-    const handleChange = (e) => {
-        setUserData({ ...userData, [e.target.name]: e.target.value });
-    };
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:3000/users/signup', userData);
-            // Handle success (e.g., show success message, redirect to login)
+            const response = await axios.post('http://localhost:3000/users/signup', { username, password });
+            navigate('/');
         } catch (error) {
             console.error('Signup error:', error);
-            // Handle error (e.g., show error message)
+            // Handle error here...
         }
     };
+
     return (
-        <form onSubmit={handleSubmit}>
-            <div>
-                <label>Username:</label>
+        <div className="signup-container">
+            <form className="signup-form" onSubmit={handleSubmit}>
+                <label htmlFor="username">Username:</label>
                 <input
+                    id="username"
                     type="text"
-                    name="username"
-                    value={userData.username}
-                    onChange={handleChange}
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
                 />
-            </div>
-            <div>
-                <label>Password:</label>
+                <label htmlFor="password">Password:</label>
                 <input
+                    id="password"
                     type="password"
-                    name="password"
-                    value={userData.password}
-                    onChange={handleChange}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                 />
-            </div>
-            <button type="submit">Signup</button>
-        </form>
+                <button type="submit">Signup</button>
+            </form>
+        </div>
     );
 };
 

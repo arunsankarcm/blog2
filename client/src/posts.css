@@ -1,4 +1,5 @@
 .posts-grid {
+    margin-top: 90px;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
@@ -49,26 +50,3 @@
     /* Space below the content */
 }
 
-/* Add styles for your 'Read' button as well */
-.read-button {
-    background: #ffa500;
-    /* Orange background for the button */
-    color: #333;
-    /* Dark text for the button */
-    border: none;
-    border-radius: 5px;
-    /* Rounded corners for the button */
-    padding: 10px 15px;
-    /* Padding inside the button */
-    text-transform: uppercase;
-    /* Uppercase text */
-    cursor: pointer;
-    /* Pointer cursor on hover */
-    font-weight: bold;
-    /* Bold font weight */
-}
-
-.read-button:hover {
-    background: #ff8700;
-    /* Darker orange on hover */
-}

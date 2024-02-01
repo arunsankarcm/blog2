@@ -1,0 +1,76 @@
+/* This will be your postdetail.css file */
+.post-detail-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #2b2e2e, #000000);
+    /* Adjust the gradient to your preference */
+    color: #fff;
+    /* For white text */
+}
+
+.post-content {
+    background: rgba(0, 0, 0, 0.6);
+    /* Semi-transparent black background */
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    /* Space between post content and comments */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    /* Shadow effect */
+    width: 80%;
+    /* Adjust the width as needed */
+    max-width: 800px;
+    /* Maximum width */
+}
+
+.comments-section {
+    width: 80%;
+    /* Adjust the width as needed */
+    max-width: 800px;
+    /* Maximum width */
+    background: rgba(0, 0, 0, 0.6);
+    /* Semi-transparent black background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    /* Shadow effect */
+    margin-bottom: 20px;
+    /* Space below the comments section */
+}
+
+.comment {
+    padding: 10px;
+    margin-bottom: 10px;
+    /* Space between comments */
+    border-bottom: 1px solid #fff;
+    /* White line under each comment */
+}
+
+.add-comment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.add-comment-form input,
+.add-comment-form button {
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.add-comment-form button {
+    background-color: #ffa500;
+    /* Orange background for the button */
+    color: black;
+    /* Black text on the button */
+    cursor: pointer;
+    /* Pointer cursor on hover */
+}
+
+.add-comment-form button:hover {
+    background-color: #e69500;
+    /* Slightly darker orange on hover */
+}

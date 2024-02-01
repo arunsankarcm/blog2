@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import './postdetail.css';
 
 const PostDetails = () => {
     const [post, setPost] = useState(null);
@@ -48,25 +49,30 @@ const PostDetails = () => {
         return <div>Loading...</div>;
     }
 
+
     return (
-        <div>
-            <h1>{post.title}</h1>
-            <p>{post.content}</p>
-            <h3>Comments:</h3>
-            <ul>
-                {comments.map(comment => (
-                    <li key={comment._id}>{comment.message}</li>
-                ))}
-            </ul>
-            <form onSubmit={handleCommentSubmit}>
-                <input
-                    type="text"
-                    value={newComment}
-                    onChange={(e) => setNewComment(e.target.value)}
-                    placeholder="Add a comment"
-                />
-                <button type="submit">Submit Comment</button>
-            </form>
+        <div className="post-detail-container">
+            <div className="post-content">
+                <h1>{post.title}</h1>
+                <p>{post.content}</p>
+            </div>
+            <div className="comments-section">
+                <h3>Comments:</h3>
+                <ul>
+                    {comments.map(comment => (
+                        <li key={comment._id} className="comment">{comment.message}</li>
+                    ))}
+                </ul>
+                <form className="add-comment-form" onSubmit={handleCommentSubmit}>
+                    <input
+                        type="text"
+                        value={newComment}
+                        onChange={(e) => setNewComment(e.target.value)}
+                        placeholder="Add a comment"
+                    />
+                    <button type="submit">Submit Comment</button>
+                </form>
+            </div>
         </div>
     );
 };

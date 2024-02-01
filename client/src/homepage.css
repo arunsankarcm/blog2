@@ -1,11 +1,9 @@
-/* home.css */
-
 /* Set a gradient background for the entire page */
 html,
-body {
+body {  
     height: 100%;
     margin: 0;
-    background: linear-gradient(to bottom, #131414, #000000);
+    background: linear-gradient(to bottom, #2b2e2e, #000000);
     /* Gradient from dark grey to black */
     color: #fff;
     /* White text color for better contrast */

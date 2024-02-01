@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios'; 
 import { useAuth } from './authcontext';
 import { useNavigate } from 'react-router-dom';
+import './login.css';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -24,27 +25,25 @@ const Login = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <div>
-                <label>Username:</label>
+        <div className="login-container">
+            <form className="login-form" onSubmit={handleSubmit}>
+                <label htmlFor="username">Username:</label>
                 <input
+                    id="username"
                     type="text"
-                    name="username"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                 />
-            </div>
-            <div>
-                <label>Password:</label>
+                <label htmlFor="password">Password:</label>
                 <input
+                    id="password"
                     type="password"
-                    name="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
-            </div>
-            <button type="submit">Login</button>
-        </form>
+                <button type="submit">Login</button>
+            </form>
+        </div>
     );
 };
 

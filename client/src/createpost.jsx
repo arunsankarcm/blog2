@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import './createpost.css';
 
 const CreatePost = () => {
     const navigate = useNavigate();
@@ -25,24 +26,26 @@ const CreatePost = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <div>
-                <label>Title:</label>
-                <input 
-                    type="text" 
-                    value={title} 
-                    onChange={(e) => setTitle(e.target.value)} 
-                />
-            </div>
-            <div>
-                <label>Content:</label>
-                <textarea 
-                    value={content} 
-                    onChange={(e) => setContent(e.target.value)} 
-                />
-            </div>
-            <button type="submit">Create Post</button>
-        </form>
+        <div className='create-post-container'>
+            <form className="create-post-form" onSubmit={handleSubmit}>
+                <div>
+                    <label>Title:</label>
+                    <input
+                        type="text"
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
+                    />
+                </div>
+                <div>
+                    <label>Content:</label>
+                    <textarea
+                        value={content}
+                        onChange={(e) => setContent(e.target.value)}
+                    />
+                </div>
+                <button type="submit">Create Post</button>
+            </form>
+        </div>
     );
 };
 

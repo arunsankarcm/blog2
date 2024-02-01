@@ -1,0 +1,56 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* Use full viewport height */
+    background: linear-gradient(to bottom, #2b2e2e, #000000);
+    /* Gradient background */
+}
+
+.login-form {
+    background: #2e2f30;
+    /* White background for the form */
+    padding: 40px;
+    /* Padding around the form */
+    border-radius: 5px;
+    /* Rounded corners */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+    /* Shadow effect */
+    display: flex;
+    flex-direction: column;
+    /* Stack the form items vertically */
+    gap: 20px;
+    /* Space between form items */
+}
+
+.login-form label {
+    color: #ffa500;
+    /* Orange color for the labels */
+    margin-bottom: 5px;
+    /* Space between label and input */
+}
+
+.login-form input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #423e3e;
+    /* Light grey border */
+}
+
+.login-form button {
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    background-color: #ffa500;
+    /* Orange background for the button */
+    color: black;
+    /* Black text on the button */
+    cursor: pointer;
+    /* Pointer cursor on hover */
+}
+
+.login-form button:hover {
+    background-color: #e69500;
+    /* Slightly darker orange on hover */
+}
