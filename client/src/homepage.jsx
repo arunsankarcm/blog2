@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Header from './header';
-import './homepage.css';
+import './css/homepage.css';
 
 const HomePage = () => {
     const [text, setText] = useState('');

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './posts.css';
+import './css/posts.css';
 import { useNavigate } from 'react-router-dom';
 import PostsHeader from './postsheader';
 

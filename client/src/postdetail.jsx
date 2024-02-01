@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import './postdetail.css';
+import './css/postdetail.css';
 
 const PostDetails = () => {
     const [post, setPost] = useState(null);
