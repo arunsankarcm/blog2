@@ -28,7 +28,10 @@ try{
     }
 
     const token = jwt.sign({ userId: user._id, admin: user.admin }, process.env.JWT_SECRET);
-    res.json({token});
+    res.json({
+        token: token,
+        isAdmin: user.admin 
+    });
 }catch(error) {
     res.status(500).json({message:'Server Error'});
 }

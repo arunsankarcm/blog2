@@ -125,3 +125,37 @@ exports.getComment = async (req, res) => {
     }
 
 };    
+
+//edit comment
+exports.editComment = async (req, res) => {
+    const { postID, commentID } = req.params;
+    const { message } = req.body;
+
+    try {
+        // Optional: Check if the user is the comment's author or an admin
+        const comment = await Comment.findById(commentID);
+        if (!comment) {
+            return res.status(404).send('Comment not found');
+        }
+
+        // Assuming req.user is set by your authentication middleware
+        if (!req.user.admin && comment.author.toString() !== req.user.id) {
+            return res.status(403).send('Not authorized to edit this comment');
+        }
+
+        // Update the comment with the new message
+        const updatedComment = await Comment.findByIdAndUpdate(commentID, { message }, { new: true });
+        if (!updatedComment) {
+            return res.status(404).send('Comment not found');
+        }
+
+        // Optionally, you could also check and update the comment within the post document
+        // const post = await Post.findById(postID);
+        // // ... logic to update the comment in the post document, if stored embedded
+
+        res.json(updatedComment);
+    } catch (error) {
+        console.error('Error updating comment:', error);
+        res.status(500).send('Server error');
+    }
+};

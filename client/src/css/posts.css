@@ -50,3 +50,20 @@
     /* Space below the content */
 }
 
+.post {
+    position: relative;
+    /* Your existing styles... */
+}
+
+.delete-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: none;
+    border: none;
+    color: white;
+    /* or any color that suits your design */
+    cursor: pointer;
+}
+
+/* Rest of your styles... */

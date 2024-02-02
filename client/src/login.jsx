@@ -15,7 +15,8 @@ const Login = () => {
         try {
             const response = await axios.post('http://localhost:3000/users/login', { username, password });
             localStorage.setItem('authToken', response.data.token);
-            login(response.data.token);
+            localStorage.setItem('isAdmin', response.data.isAdmin)
+            login(response.data.token, response.data.isAdmin);
             navigate('/posts');
             // Handle response (e.g., storing the JWT, navigating to another page)
         } catch (error) {

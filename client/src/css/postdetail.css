@@ -43,10 +43,9 @@
 
 .comment {
     padding: 10px;
-    margin-bottom: 10px;
-    /* Space between comments */
-    border-bottom: 1px solid #fff;
-    /* White line under each comment */
+        margin-bottom: 10px;
+        border-bottom: 1px solid #fff;
+        position: relative;
 }
 
 .add-comment-form {
@@ -73,4 +72,18 @@
 .add-comment-form button:hover {
     background-color: #e69500;
     /* Slightly darker orange on hover */
+}
+
+.comment-actions {
+    position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        gap: 8px;/
+}
+
+.comment-actions .fa-edit,
+.comment-actions .fa-trash-alt {
+    margin-left: 10px;
 }

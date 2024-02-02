@@ -12,10 +12,8 @@ router.post('/create-post', authenticateToken, post_controller.createPost)
 router.delete('/delete-post/:postID', authenticateToken, isAdmin, post_controller.deletePost)
 
 router.post('/:postID/add-comment', authenticateToken, post_controller.addCommentToPost);
+router.patch('/:postID/:commentID/edit-comment', authenticateToken, isAdmin, post_controller.editComment);
 router.delete('/:postID/:commentID/delete-comment', authenticateToken, isAdmin, post_controller.deleteComment);
-
-
-
 
 module.exports = router;
 
