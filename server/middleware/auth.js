@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-// Middleware for JWT authentication
+  
 const authenticateToken = (req, res, next) => {
     const token = req.headers.authorization?.split(' ')[1];
 
@@ -17,7 +17,7 @@ const authenticateToken = (req, res, next) => {
 
 
 
-// Middleware for checking if the user is an admin
+  
 const isAdmin = (req, res, next) => {
     if (!req.user.admin) {
         return res.status(403).json({ message: 'Admin access required.' });
