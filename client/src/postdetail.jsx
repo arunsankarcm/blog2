@@ -52,7 +52,6 @@ const PostDetails = () => {
     };
 
     const handleDeleteComment = async (commentID) => {
-        // Only proceed if the user is an admin
         if (!isAdmin) {
             console.log('You are not authorized to delete this comment.');
             return;
@@ -63,7 +62,6 @@ const PostDetails = () => {
             await axios.delete(`http://localhost:3000/posts/${postID}/${commentID}/delete-comment`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
-            // Update the comments state to remove the deleted comment
             setComments(comments.filter((comment) => comment._id !== commentID));
         } catch (error) {
             console.error('Error deleting comment:', error);
@@ -80,15 +78,13 @@ const PostDetails = () => {
 
     try {
         const token = localStorage.getItem('authToken');
-        // Include 'edit-comment' in the URL path to match the backend route
         await axios.patch(`http://localhost:3000/posts/${postID}/${editCommentId}/edit-comment`,
             { message: editedComment },
             { headers: { Authorization: `Bearer ${token}` } }
         );
-        // Update the comments state with the edited comment
         setComments(comments.map(comment => comment._id === editCommentId ? { ...comment, message: editedComment } : comment));
-        setEditCommentId(null); // Exit edit mode
-        setEditedComment(""); // Reset edit comment text
+        setEditCommentId(null); 
+        setEditedComment(""); 
     } catch (error) {
         console.error('Error saving edited comment:', error);
     }

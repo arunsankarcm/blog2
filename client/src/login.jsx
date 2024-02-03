@@ -18,10 +18,8 @@ const Login = () => {
             localStorage.setItem('isAdmin', response.data.isAdmin)
             login(response.data.token, response.data.isAdmin);
             navigate('/posts');
-            // Handle response (e.g., storing the JWT, navigating to another page)
         } catch (error) {
             console.error('Login error:', error);
-            // Handle error (e.g., showing an error message)
         }
     };
 

@@ -4,29 +4,29 @@ const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const [isAdmin, setIsAdmin] = useState(false); // Add an admin state
+    const [isAdmin, setIsAdmin] = useState(false); 
 
     useEffect(() => {
         const token = localStorage.getItem('authToken');
-        const adminStatus = localStorage.getItem('isAdmin') === 'true'; // Get the admin status from localStorage
+        const adminStatus = localStorage.getItem('isAdmin') === 'true'; 
         if (token) {
             setIsLoggedIn(true);
-            setIsAdmin(adminStatus); // Set admin status
+            setIsAdmin(adminStatus); 
         }
     }, []);
 
     const login = (token, adminStatus) => {
         localStorage.setItem('authToken', token);
-        localStorage.setItem('isAdmin', adminStatus); // Store the admin status
+        localStorage.setItem('isAdmin', adminStatus); 
         setIsLoggedIn(true);
-        setIsAdmin(adminStatus); // Update the admin state
+        setIsAdmin(adminStatus); 
     };
 
     const logout = () => {
         localStorage.removeItem('authToken');
-        localStorage.removeItem('isAdmin'); // Remove the admin status
+        localStorage.removeItem('isAdmin'); 
         setIsLoggedIn(false);
-        setIsAdmin(false); // Update the admin state
+        setIsAdmin(false); 
     };
 
     return (

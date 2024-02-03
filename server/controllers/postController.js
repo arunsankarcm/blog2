@@ -1,7 +1,7 @@
 const Post = require('../models/post');
 const Comment = require('../models/comment')
 
-//get posts
+  
 exports.getPost = async(req,res) => {
     try{
         const posts = await Post.find();
@@ -11,7 +11,7 @@ exports.getPost = async(req,res) => {
     }
 };
 
-// POST create a new post
+  
 exports.createPost = async (req,res) => {
     try {
         const { title, content, publish } = req.body;
@@ -30,7 +30,7 @@ exports.createPost = async (req,res) => {
     }
 };
 
-//get particular post
+  
 exports.getPostbyID = async (req, res) => {
     try {
         const postID = req.params.postID;
@@ -48,7 +48,7 @@ exports.getPostbyID = async (req, res) => {
 };
 
 
-// DELETE a post by ID
+  
 exports.deletePost = async (req, res) => {
     try {
         const postID = req.params.postID;
@@ -65,12 +65,12 @@ exports.deletePost = async (req, res) => {
     }
 };
 
-//add comment
+  
 exports.addCommentToPost = async (req, res) => {
     try {
         const { postID } = req.params;
         const { message } = req.body;
-        const userId = req.user.userId; // Assuming the JWT includes the user ID
+        const userId = req.user.userId;   
 
         const comment = new Comment({ message, user: userId });
         const savedComment = await comment.save();
@@ -84,26 +84,26 @@ exports.addCommentToPost = async (req, res) => {
 };
 
 
-//delete comment
+  
 exports.deleteComment = async (req, res) => {
     const { postID, commentID } = req.params;
     try {
-        // Find the post
+          
         const post = await Post.findById(postID);
         if (!post) {
             return res.status(404).json({ message: 'Post not found' });
         }
 
-        // Check if the comment exists in the post
+          
         const commentExists = post.comments.includes(commentID);
         if (!commentExists) {
             return res.status(404).json({ message: 'Comment not found in the post' });
         }
 
-        // Delete the comment from the comments collection
+          
         await Comment.findByIdAndDelete(commentID);
 
-        // Remove the comment reference from the post
+          
         await Post.findByIdAndUpdate(postID, { $pull: { comments: commentID } });
 
         res.status(200).json({ message: 'Comment deleted successfully' });
@@ -112,7 +112,7 @@ exports.deleteComment = async (req, res) => {
     }
 };
 
-//fetch comment of a post
+  
 exports.getComment = async (req, res) => {
     try {
         const post = await Post.findById(req.params.postID).populate('comments');
@@ -126,32 +126,32 @@ exports.getComment = async (req, res) => {
 
 };    
 
-//edit comment
+  
 exports.editComment = async (req, res) => {
     const { postID, commentID } = req.params;
     const { message } = req.body;
 
     try {
-        // Optional: Check if the user is the comment's author or an admin
+          
         const comment = await Comment.findById(commentID);
         if (!comment) {
             return res.status(404).send('Comment not found');
         }
 
-        // Assuming req.user is set by your authentication middleware
+          
         if (!req.user.admin && comment.author.toString() !== req.user.id) {
             return res.status(403).send('Not authorized to edit this comment');
         }
 
-        // Update the comment with the new message
+          
         const updatedComment = await Comment.findByIdAndUpdate(commentID, { message }, { new: true });
         if (!updatedComment) {
             return res.status(404).send('Comment not found');
         }
 
-        // Optionally, you could also check and update the comment within the post document
-        // const post = await Post.findById(postID);
-        // // ... logic to update the comment in the post document, if stored embedded
+          
+          
+          
 
         res.json(updatedComment);
     } catch (error) {

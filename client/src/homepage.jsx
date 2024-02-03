@@ -14,9 +14,9 @@ const HomePage = () => {
             if (index === fullText.length) {
                 clearInterval(intervalId);
             }
-        }, 150); // Adjust the speed as needed
+        }, 150); 
 
-        return () => clearInterval(intervalId); // Clean up the interval on unmount
+        return () => clearInterval(intervalId); 
     }, [fullText]);
 
     return (

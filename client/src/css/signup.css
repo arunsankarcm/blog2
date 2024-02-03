@@ -1,42 +1,30 @@
-/* This will be similar to your login.css */
 .signup-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    /* Full height of the viewport */
     background: linear-gradient(to bottom, #2b2e2e, #000000);
-    /* Gradient background */
 }
 
 .signup-form {
     background: #2e2f30;
-    /* Dark background for the form */
     padding: 40px;
-    /* Padding around the form */
     border-radius: 5px;
-    /* Rounded corners */
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
-    /* Shadow effect */
     display: flex;
     flex-direction: column;
-    /* Stack the form items vertically */
     gap: 20px;
-    /* Space between form items */
 }
 
 .signup-form label {
     color: #ffa500;
-    /* Orange color for the labels */
     margin-bottom: 5px;
-    /* Space between label and input */
 }
 
 .signup-form input {
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #423e3e;
-    /* Light grey border */
 }
 
 .signup-form button {
@@ -44,14 +32,10 @@
     border-radius: 5px;
     border: none;
     background-color: #ffa500;
-    /* Orange background for the button */
     color: black;
-    /* Black text on the button */
     cursor: pointer;
-    /* Pointer cursor on hover */
 }
 
 .signup-form button:hover {
     background-color: #e69500;
-    /* Slightly darker orange on hover */
 }

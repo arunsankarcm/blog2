@@ -28,7 +28,6 @@
     padding: 10px;
     border-radius: 5px;
     width: 97%;
-    /* This will make sure all fields and button are the same width */
 }
 
 .create-post-form button {
@@ -36,7 +35,6 @@
     color: black;
     cursor: pointer;
     padding: 10px;
-    /* No changes below this line */
 }
 
 .create-post-form textarea{

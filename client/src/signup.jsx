@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import './css/signup.css'; // Assuming this CSS is styled similarly to login.css
+import './css/signup.css'; 
+
 
 const Signup = () => {
     const navigate = useNavigate();
@@ -14,8 +15,11 @@ const Signup = () => {
             const response = await axios.post('http://localhost:3000/users/signup', { username, password });
             navigate('/');
         } catch (error) {
-            console.error('Signup error:', error);
-            // Handle error here...
+            if (error.response && error.response.status === 400) {
+                alert(error.response.data.message);
+            } else {
+                console.error('Signup error:', error);
+            }
         }
     };
 

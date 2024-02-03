@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Login from './login'; // Import Login component
-import Signup from './signup'; // Import Signup component
-import HomePage from './homepage'; // Import a Home page component
+import Login from './login'; 
+import Signup from './signup'; 
+import HomePage from './homepage'; 
 import { AuthProvider } from './authcontext';
-import Post from './posts'; // Import Posts component
-import PostDetails from './postdetail'; // Import PostDetails component
+import Post from './posts'; 
+import PostDetails from './postdetail'; 
 import ProtectedRoute from './protectedroute';
 import CreatePost from './createpost'; 
 
@@ -43,7 +43,6 @@ const App = () => {
               </ProtectedRoute>
             }
             />
-        {/* Define other routes as needed */}
       </Routes>
     </Router>
    </AuthProvider>

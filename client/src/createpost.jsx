@@ -18,10 +18,8 @@ const CreatePost = () => {
                 { headers: { Authorization: `Bearer ${token}` } }
             );
             navigate('/posts');
-            // Handle the successful creation (e.g., redirecting to the posts page)
         } catch (error) {
             console.error('Error creating post:', error);
-            // Handle errors (e.g., displaying an error message)
         }
     };
 
